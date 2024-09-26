@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _losePanel;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _clickerZone;
     [SerializeField] private TMP_Text _currntPointsText;
 
     private float _currntPoints = 0f;
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _maxPoints = PlayerPrefs.GetFloat("MaxPoints");
+        _player.SetActive(true);
+        _losePanel.SetActive(false);
+        _clickerZone.SetActive(true);
     }
 
     private void ComparePoints()
@@ -35,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         _player.SetActive(false);
         _losePanel.SetActive(true);
+        _clickerZone.SetActive(false);
     }
 
     public void LoadMainMenu()
